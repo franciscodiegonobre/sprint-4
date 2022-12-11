@@ -4,20 +4,24 @@ import { movies } from './data.js';
 // Exercise 1: Get the array of all directors.
 function getAllDirectors(array) {
   let result = array.map( movie => movie.director )
-  console.log("EXERCICE 1 ->", result);
+  console.log("EXERCISE 1 ->", result);
   return result;
 }
 
 getAllDirectors(movies)
 
-
-
-
-
 // Exercise 2: Get the films of a certain director
 function getMoviesFromDirector(array, director) {
- 
+ let result = array.filter( movie => movie.director === director )
+ console.log("EXERCISE 2 ->", result);
+ return result;
 }
+
+getMoviesFromDirector(movies, "Christopher Nolan")
+
+
+
+
 
 // Exercise 3: Calculate the average of the films of a given director.
 function moviesAverageOfDirector(array, director) {
