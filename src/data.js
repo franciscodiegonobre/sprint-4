@@ -1,4 +1,4 @@
-const movies = [
+export const movies = [
   {
     title: 'The Shawshank Redemption',
     year: 1994,
@@ -2000,9 +2000,9 @@ const movies = [
     genre: ['Comedy', 'Drama'],
     score: 8
   }
-];
+]
 
 /* export default films; */
-if (typeof module !== 'undefined') {
+/* if (typeof module !== 'undefined') {
   module.exports = movies;
-}
+} */
