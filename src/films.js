@@ -33,17 +33,18 @@ function moviesAverageOfDirector(array, director) {
 moviesAverageOfDirector(movies, "Martin Scorsese")
 
 
-
-
-
-
-
-
-
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(array) {
-  
+  /* let result = array.sort((movie1, movie2) => (movie1.title > movie2.title) ? 1 : (movie1.title < movie2.title) ? -1 : 0) */
+  let movieTitles = array.map(movie => movie.title)
+  let allMoviesSorted = movieTitles.sort((movie1, movie2) => (movie1 > movie2) ? 1 : (movie1 < movie2) ? -1 : 0)
+  let firstTwenty = allMoviesSorted.slice(0, 20)
+  console.log("EXERCISE 4 ->", firstTwenty);
+  return firstTwenty
 }
+
+orderAlphabetically(movies)
+
 
 // Exercise 5: Order by year, ascending
 function orderByYear() {
