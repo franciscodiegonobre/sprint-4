@@ -20,13 +20,25 @@ function getMoviesFromDirector(array, director) {
 getMoviesFromDirector(movies, "Christopher Nolan")
 
 
-
-
-
 // Exercise 3: Calculate the average of the films of a given director.
 function moviesAverageOfDirector(array, director) {
-  
+  let moviesFromDirector = getMoviesFromDirector(array, director);
+  let scoresFromDirector = moviesFromDirector.map ( movie => movie.score)
+  let result = scoresFromDirector.reduce((a, b) => a + b, 0) / scoresFromDirector.length
+  result = Number(result.toFixed(2))
+  console.log("EXERCISE 3 ->", result);
+  return result
 }
+
+moviesAverageOfDirector(movies, "Martin Scorsese")
+
+
+
+
+
+
+
+
 
 // Exercise 4:  Alphabetic order by title 
 function orderAlphabetically(array) {
