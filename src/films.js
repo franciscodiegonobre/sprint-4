@@ -1,9 +1,18 @@
+import { movies } from './data.js';
+
+
 // Exercise 1: Get the array of all directors.
 function getAllDirectors(array) {
-  let result =  ???;
+  let result = array.map( movie => movie.director )
   console.log("EXERCICE 1 ->", result);
   return result;
 }
+
+getAllDirectors(movies)
+
+
+
+
 
 // Exercise 2: Get the films of a certain director
 function getMoviesFromDirector(array, director) {
@@ -44,7 +53,7 @@ function bestFilmOfYear() {
 
 // The following is required to make unit tests work.
 /* Environment setup. Do not modify the below code. */
-if (typeof module !== 'undefined') {
+/* if (typeof module !== 'undefined') {
   module.exports = {
     getAllDirectors,
     getMoviesFromDirector,
@@ -55,4 +64,14 @@ if (typeof module !== 'undefined') {
     hoursToMinutes,
     bestFilmOfYear,
   };
-}
+} */
+export {
+  getAllDirectors,
+    getMoviesFromDirector,
+    moviesAverageOfDirector,
+    orderAlphabetically,
+    orderByYear,
+    moviesAverageByCategory,
+    hoursToMinutes,
+    bestFilmOfYear
+};
