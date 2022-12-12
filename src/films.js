@@ -23,7 +23,7 @@ getMoviesFromDirector(movies, "Christopher Nolan")
 // Exercise 3: Calculate the average of the films of a given director.
 function moviesAverageOfDirector(array, director) {
   let moviesFromDirector = getMoviesFromDirector(array, director);
-  let scoresFromDirector = moviesFromDirector.map ( movie => movie.score)
+  let scoresFromDirector = moviesFromDirector.map( movie => movie.score )
   let result = scoresFromDirector.reduce((a, b) => a + b, 0) / scoresFromDirector.length
   result = Number(result.toFixed(2))
   console.log("EXERCISE 3 ->", result);
@@ -55,17 +55,32 @@ function orderByYear(array) {
 
 orderByYear(movies)
 
-
-
-
-
-
-
-
 // Exercise 6: Calculate the average of the movies in a category
-function moviesAverageByCategory() {
 
+function moviesAverageByCategory(array, category) {
+  let moviesFromCategory = array.filter( movie => movie.genre.includes(category) )
+  let scoresFromCategory = moviesFromCategory.map ( movie => movie.score)
+  
+  scoresFromCategory = scoresFromCategory.filter(score => typeof score === "number")
+  console.log(scoresFromCategory)
+  
+  let result = scoresFromCategory.reduce((a, b) => a + b, 0) / scoresFromCategory.length
+  result = Number(result.toFixed(2))
+  console.log("EXERCISE 6 ->", result)
+  return result
 }
+
+moviesAverageByCategory(movies, "Drama")
+
+
+
+
+
+
+
+
+
+
 
 // Exercise 7: Modify the duration of movies to minutes
 function hoursToMinutes() {
