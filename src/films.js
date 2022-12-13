@@ -76,6 +76,7 @@ moviesAverageByCategory(movies, "Drama")
 function hoursToMinutes(array) {
 
   let newArray = array.map(a => {return {...a}})
+  
 //Verify if string has min or only h, then do a split accordingly, transforming string to array
   newArray.forEach( function(movie) {
     if (movie.duration.includes("min")) {
