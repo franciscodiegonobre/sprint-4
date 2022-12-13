@@ -62,7 +62,6 @@ function moviesAverageByCategory(array, category) {
   let scoresFromCategory = moviesFromCategory.map ( movie => movie.score)
   
   scoresFromCategory = scoresFromCategory.filter(score => typeof score === "number")
-  console.log(scoresFromCategory)
   
   let result = scoresFromCategory.reduce((a, b) => a + b, 0) / scoresFromCategory.length
   result = Number(result.toFixed(2))
@@ -73,19 +72,61 @@ function moviesAverageByCategory(array, category) {
 moviesAverageByCategory(movies, "Drama")
 
 
-
-
-
-
-
-
-
-
-
 // Exercise 7: Modify the duration of movies to minutes
-function hoursToMinutes() {
+function hoursToMinutes(array) {
 
+  let newArray = array.map(a => {return {...a}})
+//Verify if string has min or only h, then do a split accordingly, transforming string to array
+  newArray.forEach( function(movie) {
+    if (movie.duration.includes("min")) {
+      movie.duration = movie.duration.split(/[h,min ]/)
+    } else {
+      movie.duration = movie.duration.split(/[h]/)
+    }
+  } )
+
+//Do the time calculation depending if the array is of "type" hours only (length === 2) or hours + min
+  newArray.forEach( function(movie) {
+    if (movie.duration.length === 2) {
+      movie.duration = Number(movie.duration[0]) * 60
+    } else {
+      movie.duration = Number(movie.duration[0]) * 60 + Number(movie.duration[2])
+      
+    }
+  } )
+  console.log("EXERCISE 7 ->", newArray)
+  return newArray
 }
+
+const moviesTest = [
+  {
+    title: 'The Shawshank Redemption',
+    year: 1994,
+    director: 'Frank Darabont',
+    duration: '2h',
+    genre: ['Crime', 'Drama'],
+    score: 9.3
+  }, {
+    title: 'The Godfather',
+    year: 1972,
+    director: 'Francis Ford Coppola',
+    duration: '2h 55min',
+    genre: ['Crime', 'Drama'],
+    score: 9.2
+  }
+]
+
+hoursToMinutes(movies)
+
+
+
+
+
+
+
+
+
+
 
 // Exercise 8: Get the best film of a year
 function bestFilmOfYear() {
